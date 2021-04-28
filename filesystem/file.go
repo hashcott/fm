@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// Delete file
 func DeleteFile(filename string) {
 	removeError := os.Remove(filename)
 
@@ -14,6 +15,7 @@ func DeleteFile(filename string) {
 	}
 }
 
+// Copy file
 func CopyFile(src, dst string, shouldRemove bool) (err error) {
 	in, err := os.Open(src)
 	if err != nil {
@@ -63,6 +65,7 @@ func CopyFile(src, dst string, shouldRemove bool) (err error) {
 	return
 }
 
+// Read file content with os.ReadFile
 func ReadFileContent(name string) string {
 	dat, err := os.ReadFile(name)
 

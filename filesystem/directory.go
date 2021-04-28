@@ -9,10 +9,12 @@ import (
 	"path/filepath"
 )
 
+// Rename dir or file with os
 func RenameDirOrFile(currentName, newName string) {
 	os.Rename(currentName, newName)
 }
 
+// Get all in directory
 func GetDirectoryListing(dir string) []fs.FileInfo {
 	files, err := ioutil.ReadDir(dir)
 	os.Chdir(dir)
@@ -25,6 +27,7 @@ func GetDirectoryListing(dir string) []fs.FileInfo {
 	return files
 }
 
+// Delete directory
 func DeleteDirectory(dirname string) {
 	removeError := os.RemoveAll(dirname)
 
@@ -33,6 +36,7 @@ func DeleteDirectory(dirname string) {
 	}
 }
 
+// Copy directory
 func CopyDir(src, dst string, shouldRemove bool) (err error) {
 	src = filepath.Clean(src)
 	dst = filepath.Clean(dst)
